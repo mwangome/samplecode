@@ -1,0 +1,9 @@
+<?xml version = "1.0"?>
+
+<!DOCTYPE jasperTemplate PUBLIC "-//JasperReports//DTD Template//EN"
+  "http://jasperreports.sourceforge.net/dtds/jaspertemplate.dtd">
+
+<jasperTemplate>
+   <style name = "Strong" isBold = "true" pdfFontName = "Helvetica-Bold" 
+      backcolor = "lightGray" forecolor = "green"/>
+</jasperTemplate>

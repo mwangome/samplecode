@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.2.1.final using JasperReports Library version 6.2.1  -->
+<!-- 2016-07-07T18:41:56 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="payslip" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="12d569bb-54a1-4fd9-a5ff-5354a5c1636f">
+	<property name="net.sf.jasperreports.json.source" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<style name="Row" mode="Transparent" fontName="SansSerif" pdfFontName="SansSerif">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#D7E4F8"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="baseUrl" class="java.lang.String"/>
+	<parameter name="logopath" class="java.lang.String"/>
+	<parameter name="net.sf.jasperreports.json.source" class="java.lang.String"/>
+	<parameter name="schoolName" class="java.lang.String"/>
+	<parameter name="postalAddress" class="java.lang.String"/>
+	<queryString language="json">
+		<![CDATA[data]]>
+	</queryString>
+	<field name="employeeNames" class="java.lang.String"/>
+	<field name="gross" class="java.math.BigDecimal"/>
+	<field name="basicPay" class="java.math.BigDecimal"/>
+	<field name="houseAllowance" class="java.math.BigDecimal"/>
+	<field name="medicalAllowance" class="java.math.BigDecimal"/>
+	<field name="saccoDedution" class="java.math.BigDecimal"/>
+	<field name="offDutyDeduction" class="java.math.BigDecimal"/>
+	<field name="welfareDeduction" class="java.math.BigDecimal"/>
+	<field name="deduction" class="java.math.BigDecimal"/>
+	<field name="tax" class="java.math.BigDecimal"/>
+	<field name="netPay" class="java.math.BigDecimal"/>
+	<field name="month" class="java.lang.String"/>
+	<field name="fees" class="java.math.BigDecimal"/>
+	<field name="year" class="java.lang.Integer"/>
+	<field name="nhif" class="java.math.BigDecimal"/>
+	<field name="nssf" class="java.math.BigDecimal"/>
+	<field name="advance" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="67" splitType="Stretch">
+			<image>
+				<reportElement x="39" y="11" width="50" height="50" uuid="b2e852a0-3731-4de6-a145-62e665cc8e26"/>
+				<imageExpression><![CDATA[$P{logopath}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement isPrintRepeatedValues="false" x="180" y="4" width="200" height="30" forecolor="#000066" uuid="3ab5d7d2-7ce4-46cf-8883-521d187e8a2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{schoolName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="273" y="31" width="100" height="20" forecolor="#000066" uuid="706fc7fa-db2f-4708-98b8-ddcfa2877038"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{postalAddress}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="172" y="31" width="100" height="20" forecolor="#000066" uuid="91be81a2-d25d-43e5-a423-7a97f5e052a4">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Postal Address:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="57" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="35" width="555" height="1" forecolor="#330099" uuid="6321da38-f8ba-47a7-aad3-b214fd56aa3f"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="10" width="553" height="30" forecolor="#000066" uuid="c0b38a2f-9ef5-4406-a35a-68ecf9d0b3f1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Payslip]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="447" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="b50221b5-8254-440b-8c6f-1f0b138c9259"/>
+			</frame>
+			<textField>
+				<reportElement mode="Opaque" x="80" y="20" width="473" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="323bac35-cf3e-4667-96d1-3d767355390a">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{employeeNames}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="80" y="102" width="473" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="45b59a75-8127-466c-91e9-fa943396da56">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gross}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="80" y="61" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="3970d138-efdd-418d-85b1-fba895560e29"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{month}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="160" y="61" width="393" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="61983e22-73d0-4f61-b8e9-21d8f32b7a40"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{year}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="2" y="20" width="78" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="85234a0f-35ff-401e-877a-ed15ecd4a277"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Staff Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="61" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="8b90bd17-0780-4e15-b8fd-ec217ad20949">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Month:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="102" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="72458e86-9006-471d-a128-a9c2e7d0a8a3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Gross:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="140" width="130" height="20" forecolor="#000066" backcolor="#FFFFFF" uuid="5e843258-63b4-474e-a957-2bcc5f545336"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Allowances:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="2" y="225" width="128" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="36a3d79e-cdaa-4da3-8106-c49f28c1ac58"/>
+				<textElement>
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Deductions:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="131" y="225" width="423" height="20" backcolor="#D7E4F8" uuid="0ef995d3-f94e-4b72-abae-fe1ec11b2a28"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="80" y="263" width="200" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="7aa75d91-38a7-4c70-b2dd-02bd4b2c913e">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tax}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="263" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="82b3bfe6-48de-4545-a953-ea0da139dbdc"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[PAYE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="302" width="79" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="3aefd2f6-9e33-4bb0-8327-c86a812dcde6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NSSF:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="80" y="302" width="200" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="cf38c099-678c-4b1d-9e63-33b403d9e5c0">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nssf}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="342" width="79" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="5ad2ee5a-d174-4fd7-9cf9-682faf932512"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[NHIF:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="80" y="342" width="200" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="bd5d56a2-958d-4bb1-982f-8823b4d04712">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nhif}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="382" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="91d0d699-7d19-4979-bc2a-536fdebf08dd"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Advances: ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="80" y="382" width="473" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="2c62d76d-04de-4cc4-bc34-01e4eb4b1372">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{advance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="423" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="04021ce5-f7eb-440c-94d6-77504c2d8199"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Net Pay:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="80" y="423" width="473" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="f02e8581-7078-4cab-887c-1de112be5d00">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true" isUnderline="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{netPay}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="279" y="263" width="101" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="2b952842-a9a1-4ca9-b480-4e6317e8acac"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Sacco:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="380" y="263" width="175" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="78f129d3-806d-4c43-9587-ae6ca466b83b">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{saccoDedution}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="280" y="302" width="100" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="a812fc17-f3eb-4384-84f2-2404ed9b0e04"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Welfare:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="281" y="342" width="99" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="a8c7e299-7aae-49ec-8b78-ddef6294482f"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Off Duty:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="380" y="302" width="174" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="ff5ffc49-3743-41ba-a9f7-e9ca306f7a79">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{welfareDeduction}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="380" y="342" width="174" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="e89c2492-6783-484f-ab56-4c357b58eced">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{offDutyDeduction}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="181" width="80" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="70133c2a-907f-448a-8662-c7f78678ffde"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[House:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="80" y="181" width="200" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="c20785c0-a815-4ef9-b9fd-3cb6c5749c8d">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{houseAllowance}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="279" y="181" width="101" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="78473789-74ac-470a-98f4-2f41c85a24b4"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Medical:]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement mode="Opaque" x="380" y="181" width="175" height="20" forecolor="#000066" backcolor="#D7E4F8" uuid="2be37301-f7bf-4928-83f5-7c00895aa3e8">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{medicalAllowance}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="59" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="1" width="551" height="1" forecolor="#330099" uuid="e6ac7bd0-6c66-4f03-a2e2-59e4c9ffe70f"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="6" splitType="Stretch"/>
+	</summary>
+</jasperReport>

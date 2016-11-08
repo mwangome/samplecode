@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Blank_A4_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="de083992-95ea-48ad-983f-f63b1b7885ab">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+        <property name="net.sf.jasperreports.viewer.zoom" value="FitWidth" />
+	<parameter name="endDate" class="java.lang.String"/>
+	<parameter name="entityId" class="java.lang.String"/>
+	<parameter name="baseUrl" class="java.lang.String"/>
+	<parameter name="net.sf.jasperreports.json.source" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{baseUrl} + "/mtech/incomestatementhtmltable/gridview.action?&entityId=" + $P{entityId}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="json">
+		<![CDATA[data]]>
+	</queryString>
+	<field name="name" class="java.lang.String"/>
+	<field name="value" class="java.lang.String"/>
+	<title>
+		<band height="43" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="1" y="2" width="554" height="20" forecolor="#FFFFFF" backcolor="#70A9A9" uuid="753901f4-392a-473d-9772-b0f7c25ccb70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Income Statement]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="23" width="100" height="20" uuid="6e1464f6-ec10-4323-a573-52a2acc3a9dd"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="181" y="23" width="100" height="20" uuid="c0191e7b-614a-490c-89eb-e41d1c4c7b68"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Period Ended:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="25">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="555" height="14" backcolor="#E5ECF9" uuid="59026f47-e777-46d3-9ffe-263f8a014280"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[ ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" mode="Transparent" x="1" y="0" width="361" height="14" uuid="acdaa9d7-112b-4f93-913c-fee7f0fb885e"/>
+				<textElement markup="html">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement positionType="Float" mode="Transparent" x="362" y="0" width="193" height="14" uuid="9eba607c-00d7-438d-9300-effabb648072"/>
+				<textElement textAlignment="Right" markup="html">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{value}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="52"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="JsonCustomersReport" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="bbe115b5-a5a0-4b39-9b73-7092dc59ab6d">
+	<property name="ireport.zoom" value="1.771561000000001"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+        <property name="net.sf.jasperreports.viewer.zoom" value="FitWidth" />
+	<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
+	<parameter name="testParam" class="java.lang.String"/>
+	<parameter name="_registeredName" class="java.lang.String"/>
+	<parameter name="net.sf.jasperreports.json.source" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{testParam} + "/mtech/accounttransactions/getgridview.action?&_registeredName=" + $P{_registeredName} + "&testParam=" + $P{testParam}]]></defaultValueExpression>
+	</parameter>
+	<parameter name="endDate" class="java.lang.String"/>
+	<queryString language="json">
+		<![CDATA[data]]>
+	</queryString>
+	<field name="accountName" class="java.lang.String"/>
+	<field name="transDate" class="java.lang.String"/>
+	<field name="debit" class="java.lang.String"/>
+	<field name="credit" class="java.lang.String"/>
+	<field name="transRef" class="java.lang.String"/>
+	<variable name="debitTotal" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[new java.math.BigDecimal($F{debit}.length() == 0?"0":$F{debit})]]></variableExpression>
+	</variable>
+	<variable name="creditTotal" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[new java.math.BigDecimal($F{credit}.length() == 0?"0":$F{credit})]]></variableExpression>
+	</variable>
+	<title>
+		<band height="70">
+			<line>
+				<reportElement x="0" y="0" width="515" height="1" uuid="69d38bc7-9c8b-4400-aa83-8ad056f4135a"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="27" width="514" height="20" uuid="51b46fe2-825c-4b90-985e-462a79d5b8db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[GL Accounts Entries]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="50" width="71" height="20" uuid="118c28b8-0e84-4993-8308-a6d19ae819a7"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Period ended: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="267" y="50" width="100" height="20" uuid="a14d050f-cd85-4d5a-8966-191a904131ca"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="23">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="3" width="515" height="15" backcolor="#70A9A9" uuid="aca2d0d4-129f-4aa1-b1be-6170a3b91ff2"/>
+				<box>
+					<bottomPen lineWidth="1.0" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+               
+            ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="3" width="84" height="15" uuid="2059e5dc-3a82-4880-bc83-fb88032d6862"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="3" width="89" height="15" uuid="67573071-fba6-49ea-87a8-e4d58174606d"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="341" y="3" width="90" height="15" uuid="779dce6d-0cd2-4a6f-91ba-47256b14b25f"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dr]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="3" width="168" height="15" uuid="6ff84d9f-04a7-4dc2-bc7a-d423eb701fff"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Account]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="3" width="100" height="15" uuid="58c7506a-d18a-464e-beae-70995795ea9b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Trans Ref]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="515" height="14" backcolor="#E5ECF9" uuid="59026f47-e777-46d3-9ffe-263f8a014280"/>
+				<box>
+					<bottomPen lineWidth="0.25" lineColor="#CCCCCC"/>
+				</box>
+				<text><![CDATA[
+               
+            ]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Sans_Bold" x="174" y="0" width="167" height="15" uuid="0aaeed6e-7ba1-4ab9-be59-d6ca702995fc"/>
+				<textFieldExpression><![CDATA[$F{accountName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="89" height="15" uuid="0cd2056b-5d78-4ceb-a176-a25465b36841"/>
+				<textFieldExpression><![CDATA[$F{transDate}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="341" y="1" width="90" height="14" uuid="fc3c28d1-c0ce-442b-88f3-fb4c03627181"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{debit}.equalsIgnoreCase("")?"":
+(new java.text.DecimalFormat("#,###.##").format(Double.parseDouble($F{debit})))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="430" y="1" width="84" height="14" uuid="a1678368-7517-41bf-813a-8a7a15f06de5"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{credit}.equalsIgnoreCase("")?"":
+(new java.text.DecimalFormat("#,###.##").format(Double.parseDouble($F{credit})))]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="88" y="0" width="86" height="14" uuid="8b5db4b1-d12a-4b38-826e-6b4a94ff89d9"/>
+				<textFieldExpression><![CDATA[$F{transRef}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="50">
+			<textField>
+				<reportElement x="342" y="0" width="89" height="20" uuid="c9a76e9b-425f-4a30-9f32-77b22da08b8c"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<pen lineStyle="Double"/>
+					<topPen lineStyle="Double"/>
+					<leftPen lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###.##").format($V{debitTotal})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="430" y="0" width="84" height="20" uuid="ed608087-b846-4dfc-8a81-a117ed0ebba8"/>
+				<box topPadding="3" leftPadding="3" bottomPadding="3" rightPadding="3">
+					<pen lineWidth="0.0" lineStyle="Double"/>
+					<topPen lineWidth="0.0" lineStyle="Double"/>
+					<leftPen lineWidth="0.0" lineStyle="Double"/>
+					<bottomPen lineWidth="1.0" lineStyle="Double"/>
+					<rightPen lineWidth="0.0" lineStyle="Double"/>
+				</box>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[new java.text.DecimalFormat("#,###.##").format($V{creditTotal})]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0569c260-6b06-44a9-8bcb-0794e4ea04aa">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="DejaVu Serif" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="DejaVu Serif" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="DejaVu Serif" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="DejaVu Serif" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="DejaVu Serif" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="htmlTable" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[select * from public.app_user]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="active_state_id" class="java.lang.Integer"/>
+	<field name="created_at" class="java.sql.Date"/>
+	<field name="created_by" class="java.lang.Integer"/>
+	<field name="date_deleted" class="java.sql.Timestamp"/>
+	<field name="deleted_by" class="java.lang.Integer"/>
+	<field name="email_address" class="java.lang.String"/>
+	<field name="first_name" class="java.lang.String"/>
+	<field name="is_deleted" class="java.lang.Boolean"/>
+	<field name="is_first_login" class="java.lang.Boolean"/>
+	<field name="is_lender" class="java.lang.Boolean"/>
+	<field name="is_sme" class="java.lang.Boolean"/>
+	<field name="is_staff" class="java.lang.Boolean"/>
+	<field name="last_login_date" class="java.sql.Timestamp"/>
+	<field name="last_modified" class="java.sql.Timestamp"/>
+	<field name="last_name" class="java.lang.String"/>
+	<field name="mobile_phone_number" class="java.lang.String"/>
+	<field name="other_name" class="java.lang.String"/>
+	<field name="password" class="java.lang.String"/>
+	<field name="reset_password" class="java.lang.Boolean"/>
+	<field name="reason_deleted" class="java.lang.String"/>
+	<field name="row_comment" class="java.lang.String"/>
+	<field name="state" class="java.lang.String"/>
+	<field name="status_date" class="java.sql.Date"/>
+	<field name="username" class="java.lang.String"/>
+	<field name="branch_id" class="java.lang.Long"/>
+	<field name="sme_id" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="220" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="754b0743-7aee-4789-9a94-28dd6bb5e0af"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="bc14572d-1ecb-45aa-a9f6-6b75e6fcd6cc"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Cherry Title]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="485" y="37" width="316" height="29" uuid="3bd08d35-c364-4a3f-8fa3-cb51d265c7c2"/>
+					<textElement textAlignment="Right">
+						<font fontName="DejaVu Serif" size="22" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Income Statement]]></text>
+				</staticText>
+			</frame>
+			<textField>
+				<reportElement x="0" y="104" width="555" height="60" uuid="fe5a89cf-e950-44b8-997c-f70cd5be00bb"/>
+				<textElement textAlignment="Center" markup="styled">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["This text field element contains styled text displaying the text-only version of the <style size=\"12\" isBold=\"true\" forecolor=\"black\">^<style forecolor=\"#808080\">Jasper</style><style forecolor=\"#990000\">Reports</style></style> logo and some <font size=\"10\"><sup>superscript</sup></font> text and <font size=\"10\"><sub>subscript</sub></font> text."]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="82c6dbf0-7005-4a55-88ea-090db3c53cc1"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="b133a977-b0ec-40fb-8245-533444266369"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Serif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="d4db0de7-a725-40c9-b55b-f72eeada2438"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="DejaVu Serif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="0a9ba4cd-3218-4c61-a786-0064cf99d0c6"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="DejaVu Serif" size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

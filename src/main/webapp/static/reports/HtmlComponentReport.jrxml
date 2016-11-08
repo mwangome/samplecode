@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="HtmlComponentReport" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="d3cde143-215c-4432-a121-c6ca35e3e605">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="48"/>
+	<title>
+		<band height="742">
+			<textField hyperlinkType="Reference" hyperlinkTarget="Blank">
+				<reportElement x="0" y="30" width="515" height="30" uuid="c2015c9b-9130-4f39-a09e-c341c91d3794"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA["HTML  Element  Report"]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="0" y="100" width="515" height="642" backcolor="#ADD8E6" uuid="332dd551-e8cd-4cb0-a11f-7325f481017b"/>
+				<hc:html xmlns:hc="http://jasperreports.sourceforge.net/htmlcomponent" xsi:schemaLocation="http://jasperreports.sourceforge.net/htmlcomponent http://jasperreports.sourceforge.net/xsd/htmlcomponent.xsd" scaleType="FillFrame" horizontalAlign="Left" verticalAlign="Top">
+					<hc:htmlContentExpression><![CDATA["<table border='1px' width='100%' height='100%' " +
+												"style='font-family:Comic Sans; font-size:10px; color:black; background-color:#E5DD6F;'>" + 
+											"<tr>" + 
+												"<td>td11</td>" + 
+												"<td>td12</td>" + 
+												"<td>td13</td>" + 
+											"</tr>" + 
+											"<tr>" + 
+												"<td>td21</td>" + 
+												"<td>td22</td>" + 
+												"<td>td23</td>" + 
+											"</tr>" + 
+											"<tr>" + 
+												"<td>td31</td>" + 
+												"<td>td32</td>" + 
+												"<td>td33</td>" + 
+											"</tr>" + 
+											"<tr>" + 
+												"<td colspan='3'></td>" + 
+											"</tr>" + 
+										"</table>"]]></hc:htmlContentExpression>
+				</hc:html>
+			</componentElement>
+		</band>
+	</title>
+</jasperReport>

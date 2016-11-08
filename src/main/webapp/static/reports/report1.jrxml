@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e0e31c4-8a43-4570-bb9c-37e57196be31">
+	<queryString language="SQL">
+		<![CDATA[select * from app_user]]>
+	</queryString>
+	<field name="active_state_id" class="java.lang.Integer"/>
+	<field name="created_at" class="java.sql.Date"/>
+	<field name="created_by" class="java.lang.Integer"/>
+	<field name="date_deleted" class="java.sql.Timestamp"/>
+	<field name="deleted_by" class="java.lang.Integer"/>
+	<field name="email_address" class="java.lang.String"/>
+	<field name="first_name" class="java.lang.String"/>
+	<field name="is_deleted" class="java.lang.Boolean"/>
+	<field name="is_first_login" class="java.lang.Boolean"/>
+	<field name="is_lender" class="java.lang.Boolean"/>
+	<field name="is_sme" class="java.lang.Boolean"/>
+	<field name="is_staff" class="java.lang.Boolean"/>
+	<field name="last_login_date" class="java.sql.Timestamp"/>
+	<field name="last_modified" class="java.sql.Timestamp"/>
+	<field name="last_name" class="java.lang.String"/>
+	<field name="mobile_phone_number" class="java.lang.String"/>
+	<field name="other_name" class="java.lang.String"/>
+	<field name="password" class="java.lang.String"/>
+	<field name="reset_password" class="java.lang.Boolean"/>
+	<field name="reason_deleted" class="java.lang.String"/>
+	<field name="row_comment" class="java.lang.String"/>
+	<field name="state" class="java.lang.String"/>
+	<field name="status_date" class="java.sql.Date"/>
+	<field name="username" class="java.lang.String"/>
+	<field name="branch_id" class="java.lang.Long"/>
+	<field name="sme_id" class="java.lang.Long"/>
+	<field name="id" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
